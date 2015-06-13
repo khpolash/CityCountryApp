@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -37,11 +38,17 @@ namespace CountryCityApp.DAL.Gateway
 
         public bool SaveCountry(Country aCountry)
         {
-
-            string saveQuery = string.Format(@"INSERT INTO tbl_country (CountryName, AboutCountry) VALUES ('{0}','{1}')",aCountry.Name,aCountry.About);
+            string insertSQL;
+            insertSQL = "INSERT INTO tbl_country (";
+            insertSQL += "CountryName, AboutCountry) ";
+            insertSQL += "VALUES (";
+            insertSQL += "@name, @about)";
 
             sqlConnection.Open();
-            sqlCommand.CommandText = saveQuery;
+            sqlCommand.CommandText = insertSQL;
+            sqlCommand.Parameters.AddWithValue("@name", aCountry.Name);
+            sqlCommand.Parameters.AddWithValue("@about", aCountry.About);
+            
             int saveRowAffected = sqlCommand.ExecuteNonQuery();
             sqlConnection.Close();
 

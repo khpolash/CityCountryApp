@@ -35,9 +35,21 @@ namespace CountryCityApp.DAL.Gateway
 
         public bool SaveCity(City aCity)
         {
-            string saveQuery = "INSERT INTO tbl_city VALUES ('" + aCity.Name + "','" + aCity.About + "','" + aCity.Dwellers + "','" + aCity.Location + "','" + aCity.Weather + "','" + aCity.CountryId + "')";
+            string insertSQL;
+            insertSQL = "INSERT INTO tbl_city (";
+            insertSQL += "CityName, AboutCity, Dwellers, Location, Weather, CountryId) ";
+            insertSQL += "VALUES (";
+            insertSQL += "@name, @about, @dwellers, @location, @weather, @ciuntryid)";
+
             sqlConnection.Open();
-            sqlCommand.CommandText = saveQuery;
+            sqlCommand.CommandText = insertSQL;
+            sqlCommand.Parameters.AddWithValue("@name", aCity.Name);
+            sqlCommand.Parameters.AddWithValue("@about", aCity.About);
+            sqlCommand.Parameters.AddWithValue("@dwellers", aCity.Dwellers);
+            sqlCommand.Parameters.AddWithValue("@location", aCity.Location);
+            sqlCommand.Parameters.AddWithValue("@weather", aCity.Weather);
+            sqlCommand.Parameters.AddWithValue("@ciuntryid", aCity.CountryId);
+
             int saveRowAffected = sqlCommand.ExecuteNonQuery();
             sqlConnection.Close();
 
