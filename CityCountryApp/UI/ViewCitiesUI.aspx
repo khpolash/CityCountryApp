@@ -129,7 +129,7 @@
                                         <asp:BoundField HeaderText="About" DataField="AboutCity" HtmlEncode="False" />
                                         <asp:BoundField HeaderText="No of Dwellers" DataField="Dwellers" />
                                         <asp:BoundField HeaderText="Location" DataField="Location" />
-                                        <asp:BoundField HeaderText="Wearher" DataField="Weather" HtmlEncode="False" />
+                                        <asp:BoundField HeaderText="Weather" DataField="Weather" HtmlEncode="False" />
                                         <asp:BoundField HeaderText="Country" DataField="Country" />
                                         <asp:BoundField HeaderText="About Country" DataField="AboutCountry" HtmlEncode="False" />
                                     </Columns>

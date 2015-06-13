@@ -90,7 +90,7 @@
                         <div class="form-group">
                             <label class="control-label col-sm-2" for="cityNameTextBox">Name</label>
                             <div class="col-sm-10">
-                                <input type="text" runat="server" class="form-control" id="cityNameTextBox" placeholder="City Name" />
+                                <input type="text" runat="server" class="form-control" id="cityNameTextBox" placeholder="City Name" required="required" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -126,7 +126,7 @@
                         <div class="form-group">
                             <div class="col-sm-offset-1 col-sm-10">
                                 <asp:Button ID="saveCityButton" runat="server" class="btn btn-default" Text="Submit" OnClick="saveCityButton_Click1" />
-                                <asp:Button ID="cencleCityButton" runat="server" class="btn btn-default" Text="Cencal" OnClick="cencleCityButton_Click" />
+                                <asp:Button ID="cencleCityButton" runat="server" UseSubmitBehavior="False" class="btn btn-default" Text="Cencal" OnClick="cencleCityButton_Click" />
 
                                 <asp:Label ID="messageLabel" runat="server" Text="Label"></asp:Label>
                             </div>

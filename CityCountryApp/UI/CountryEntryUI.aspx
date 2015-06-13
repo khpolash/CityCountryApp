@@ -89,8 +89,8 @@
                         <div class="form-group">
                             <label class="control-label col-sm-1" for="countryNameTextBox">Name</label>
                             <div class="col-sm-11">
-                                <input runat="server" class="form-control" type="text" id="countryNameTextBox" placeholder="Country Name" />
-
+                                <input runat="server" class="form-control" type="text" id="countryNameTextBox" placeholder="Country Name" required="Required"/>
+                                
                             </div>
                         </div>
                         <div class="form-group">
@@ -103,7 +103,7 @@
                         <div class="form-group">
                             <div class="col-sm-offset-1 col-sm-11">
                                 <asp:Button class="btn btn-default" ID="countrySaveButton" runat="server" Text="Save" OnClick="countrySaveButton_Click" />
-                                <asp:Button class="btn btn-default" ID="countryCencalButton" runat="server" Text="Cencle" OnClick="countryCencalButton_Click" />
+                                <asp:Button class="btn btn-default" ID="countryCencalButton" UseSubmitBehavior="False"  runat="server" Text="Cancel" OnClick="countryCencalButton_Click" />
 
                                 <asp:Label ID="messageLabel" runat="server" Text="messageLabel"></asp:Label>
                             </div>
@@ -119,7 +119,7 @@
                                 ForeColor="#333333" GridLines="Both" Width="800px" AllowPaging="True"
                                 OnPageIndexChanging="countryGridView_PageIndexChanging" ShowHeaderWhenEmpty="True">
                                 <AlternatingRowStyle BackColor="White" ForeColor="#284775"></AlternatingRowStyle>
-                                <PagerSettings Mode="NextPreviousFirstLast" PageButtonCount="2" ></PagerSettings>
+                                <PagerSettings Mode="NumericFirstLast" PageButtonCount="5"  ></PagerSettings>
                                 
                                 <Columns>
                                     <asp:TemplateField HeaderText="Serial No.">
